@@ -1,0 +1,35 @@
+<%- include('header') %>
+<div class="profile-container">
+    <div class="profile-header">
+        <h1 class="profile-title">User Profile</h1>
+        <h3 class="profile-welcome">Welcome, <%= username %>!</h3>
+    </div>
+
+    <!-- Error message section -->
+    <div class="profile-messages">
+        <% if (typeof errorMessage !== 'undefined') { %>
+            <p class="error-message"><%= errorMessage %></p>
+        <% } %>
+        <% if (typeof successMessage !== 'undefined') { %>
+            <p class="success-message"><%= successMessage %></p>
+        <% } %>
+    </div>
+
+    <!-- Delete account form -->
+    <div class="profile-form">
+        <form action="/profile/delete" method="POST">
+            <button class="btn-delete" type="submit">Delete Account</button>
+        </form>
+    </div>
+
+    <!-- Change password form -->
+    <div class="profile-form">
+        <form action="/profile/pass" method="POST">
+            <input class="input-password" type="password" name="password" placeholder="Old Password">
+            <input class="input-password" type="password" name="password2" placeholder="New Password">
+            <input class="input-password" type="password" name="password3" placeholder="Confirm New Password">
+            <button class="btn-change-password" type="submit">Change Password</button>
+        </form>
+    </div>
+</div>
+<%- include('footer') %>
